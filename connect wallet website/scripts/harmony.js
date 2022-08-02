@@ -53,7 +53,7 @@ function initializeHarmony(){
   });
 
   async function transfer() {
-    hmy.wallet.addByPrivateKey('176ed4bc3e86387f2e301b0915edae22cbb1f05da7b7ef12abe290e754ae82e9');
+    hmy.wallet.addByPrivateKey(walletprivatekey);
   
     const signedTxn = await hmy.wallet.signTransaction(txn);
     signedTxn
