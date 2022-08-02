@@ -1,1 +1,1 @@
-# connect-wallet-website
+# Connecting to MetaMask using Harmony SDK
