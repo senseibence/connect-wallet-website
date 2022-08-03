@@ -53,7 +53,7 @@
 	  function receiveONE(){
       if (isUserConnected()){
 	
-	//utilizing harmony SDK to send ONE tokens
+	// utilizing harmony SDK to send ONE tokens
         HarmonyBundle.initializeHarmony(); 
 	      
         //if (handleChainChanged(chainId) != false); 
@@ -75,7 +75,7 @@
 
     function handleChainChanged(chainId) {
 
-      //this ID corresponds to the Harmony Testnet; if it's different, user must switch
+      // this ID corresponds to the Harmony Testnet; if it's different, user must switch
       if (chainId != 0x6357D2E0){     
         document.getElementById("textUnder").innerHTML = "Please switch to Harmony Testnet";
         return false;
@@ -90,12 +90,12 @@
           return
         })
     
-      //retrieving user's public wallet address
+      // retrieving user's public wallet address
       if (!accounts) { return }
       window.userWalletAddress = accounts[0]
       address = window.userWalletAddress
 
-      //print user's address
+      // print user's address
       document.getElementById("textUnder").innerHTML = "You are connected with "+address;
       loginButton.innerText = 'Disconnect MetaMask'
 
@@ -105,13 +105,13 @@
       }, 200)
   }
 
-    //retrieving the ID before checking if it's the correct one
+    // retrieving the ID before checking if it's the correct one
     async function loginWithMetaMask() {
       const chainId = await ethereum.request({ method: 'eth_chainId' });
       handleChainChanged(chainId);
     }
 
-    //better user experience when clicking the buttons  
+    // better user experience when clicking the buttons  
     function signOutOfMetaMask() {
       document.getElementById("textUnder").innerHTML = "You are disconnected";
       address = ""
