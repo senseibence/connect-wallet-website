@@ -60,7 +60,7 @@ function initializeHarmony(){
   async function transfer() {
     hmy.wallet.addByPrivateKey(walletprivatekey);
     
-    //printing details about transaction
+    //printing transaction details
     const signedTxn = await hmy.wallet.signTransaction(txn);
     signedTxn
       .observed()
