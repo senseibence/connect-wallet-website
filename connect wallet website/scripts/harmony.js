@@ -1,10 +1,10 @@
 var hmy;
 //var address = userWallet.innerText;
 
-//import that correctly handles Ethereum addresses 
+// import that correctly handles Ethereum addresses 
 const createKeccakHash = require('keccak') 
 
-//parsing address
+// parsing address
 function toChecksumAddress (address) {
   address = address.toLowerCase().replace('0x', '')
   var hash = createKeccakHash('keccak256').update(address).digest('hex')
@@ -20,8 +20,8 @@ function toChecksumAddress (address) {
 
   return ret
 }
-
-//import harmony libraries from SDK
+ 
+// import harmony libraries from SDK
 function initializeHarmony(){
   const { Harmony } = require('@harmony-js/core');
   const {
@@ -42,7 +42,7 @@ function initializeHarmony(){
     },
   ); 
   
-  //process to do transaction
+  // process to do transaction
   const txn = hmy.transactions.newTx({
     to: toChecksumAddress(address),
     value: new Unit(1).asOne().toWei(),
@@ -56,11 +56,11 @@ function initializeHarmony(){
     gasPrice: new hmy.utils.Unit('1').asGwei().toWei(),
   });
 
-  //need private key of a "main" wallet, where ONE tokens will come from
+  // need private key of a "main" wallet, where ONE tokens will come from
   async function transfer() {
     hmy.wallet.addByPrivateKey(walletprivatekey);
     
-    //printing transaction details
+    // printing transaction details
     const signedTxn = await hmy.wallet.signTransaction(txn);
     signedTxn
       .observed()
